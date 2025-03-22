@@ -14,6 +14,15 @@ This tool automatically:
 - Runs `flutter clean` on each project
 - Reports total space freed
 
+## Features
+
+- Parallel Cleaning: Processes multiple projects simultaneously for speed
+- Non-intrusive: Only cleans build directories, leaving your source code untouched
+- Space Reporting: Shows exactly how much space you've reclaimed
+- Dry Run Mode: Preview what would be cleaned without making changes
+- Safety Confirmation: Confirm before cleaning with detailed information
+- Configurable: Control recursion depth, verbosity, and confirmation prompts
+
 ## Installation
 You can install flutter cleaner CLI from github repository or pub.dev:
 ```bash
@@ -49,6 +58,12 @@ f_cleaner --dir=/path/to/your/flutter/projects
 # Non-recursive scan
 f_cleaner --dir=/path/to/projects --no-recursive
 
+# Dry run (scan and report but don't clean)
+f_cleaner --dry-run
+
+# Skip confirmation prompt
+f_cleaner --no-confirm
+
 # Show detailed output
 f_cleaner --verbose
 
@@ -63,6 +78,14 @@ Flutter Projects Cleaner 🧹
 ===========================
 🗂️ Scanning directory: /Users/username/development
 Recursive scan: Yes
+
+Found 3 Flutter project(s) with build directories:
+- /Users/username/development/project1 (2.3 GB)
+- /Users/username/development/project2 (1.8 GB)
+- /Users/username/development/clients/project3 (3.2 GB)
+
+Total space that can be freed: 7.3 GB
+Do you want to proceed with cleaning these projects? [y/N]: y
 
 ✅ Cleaned: /Users/username/development/project1 (freed 2.3 GB)
 ✅ Cleaned: /Users/username/development/project2 (freed 1.8 GB)
